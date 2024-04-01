@@ -36,8 +36,8 @@ body {
 /* Carrossel de imagens */
 
 .carousel-item img {
-    height: 500px;
-    object-fit: cover;
+    height: 60vmin;
+    /* object-fit: cover; */
 }
 
 .carousel-control-prev {
@@ -82,7 +82,7 @@ a.carousel-control-next {
 }
 
 .logo {
-    width: 130px; /* Set the desired width */
+    width: 110px; /* Set the desired width */
     height: auto; /* Maintain aspect ratio */
 }
 
