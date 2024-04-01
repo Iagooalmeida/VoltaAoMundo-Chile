@@ -1,5 +1,11 @@
 /* Estilos gerais */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
@@ -34,6 +40,25 @@ body {
     object-fit: cover;
 }
 
+.carousel-control-prev {
+    left: 0;
+    background: #022948;
+}
+
+a.carousel-control-next {
+    background: #022948;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Define um fundo escuro semi-transparente */
+    color: #fff; /* Define a cor do texto como branco */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra ao texto */
+}
+
+.carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
+    opacity: .7;
+}
+
 /* Cards */
 
 .card {
@@ -54,6 +79,11 @@ body {
 .btn-primary:hover {
     background-color: #0056b3;
     border-color: #0056b3;
+}
+
+.logo {
+    width: 130px; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
 }
 
 /* Títulos */
