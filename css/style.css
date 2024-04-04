@@ -20,8 +20,16 @@ body {
     font-size: 1.5rem;
 }
 
+.navbar-dark{
+    --bs-navbar-color: rgba(255, 255, 255, 1) !important;  
+}
+
 .navbar-nav .nav-link {
     font-size: 1.2rem;
+}
+
+.mt-5 {
+    margin-bottom: 3rem;
 }
 
 .main-content {
@@ -31,6 +39,18 @@ body {
 .container-fluid {
     padding: 0px;
 }
+
+img.img-fluid.w-100 {
+    object-fit: cover;
+    height: 52vmin;
+}
+
+h2.text-white {
+    font-size: 2.5rem; /* ou o tamanho que preferir */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+}
+
 
 /* Rodapé */
 
@@ -75,6 +95,17 @@ a.carousel-control-next {
 .card:hover {
     transform: translateY(-5px);
 }
+
+.card-title {
+    color: #c91c0e;;
+}
+
+p.card-date {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
 
 /* Botão Saiba Mais */
 
