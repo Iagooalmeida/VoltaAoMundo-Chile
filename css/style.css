@@ -156,6 +156,59 @@ h1, h2, h3 {
     color: #343a40;
 }
 
+/* Galeria de imagens */
+
+/* .nav-tabs {
+    border-bottom: none; Remove a borda inferior das guias
+} */
+
+.nav-tabs .nav-link {
+    color: #343a40; /* Cor dos botões da guia */
+    border: none; /* Remove a borda dos botões da guia */
+    border-radius: 0; /* Remove o arredondamento dos botões da guia */
+    background-color: transparent; /* Fundo transparente dos botões da guia */
+    padding: 0.5rem 1rem; /* Espaçamento interno dos botões da guia */
+    margin-right: 10px; /* Margem direita entre os botões da guia */
+    font-size: 1.2rem; /* Tamanho da fonte dos botões da guia */
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #007bff; /* Cor de fundo do botão da guia ativo */
+    color: #fff; /* Cor do texto do botão da guia ativo */
+}
+
+.tab-content {
+    padding-top: 20px; /* Espaçamento superior do conteúdo da guia */
+}
+
+.tab-pane img {
+    width: 100%; /* Imagens ocupam 100% da largura do contêiner */
+    border-radius: 10px; /* Borda arredondada nas imagens */
+    cursor: pointer; /* Cursor ao passar sobre as imagens */
+    transition: transform 0.3s ease; /* Transição suave ao passar sobre as imagens */
+}
+
+.tab-pane img:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho da imagem ao passar o mouse */
+}
+
+/* Fim Galeria de imagens */
+
+/* Modal */
+
+.modal-dialog {
+    max-width: 90vw; /* Largura máxima do modal */
+}
+
+.modal-body img {
+    max-width: 100%; /* Imagens dentro do modal ocupam 100% da largura */
+    max-height: 80vh; /* Altura máxima das imagens dentro do modal */
+    border-radius: 10px; /* Borda arredondada nas imagens */
+}
+
+
+/* Fim Modal */
+
 /* Rodapé */
 
 /* Estilos para o rodapé */
