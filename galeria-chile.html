@@ -6,7 +6,8 @@
     <title>Galeria de Imagens</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/galeria.css">
+    <script src="js/lightbox.js"></script>
 </head>
 <body>
     <header>
@@ -57,12 +58,12 @@
                 <ul class="nav nav-tabs justify-content-center">
                     <li class="nav-item">
                         <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#todas">Todas</button>
+                    </li>  
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pontos-turisticos">Pontos Turísticos</button>
                     </li>
                     <li class="nav-item">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#gastronomia">Gastronomia</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pontos-turisticos">Pontos Turísticos</button>
                     </li>
                     <!-- Adicione mais botões conforme necessário -->
                 </ul>
@@ -72,38 +73,237 @@
                         <div class="row">
                             <!-- Aqui você pode adicionar as imagens de todas as categorias -->
                             <div class="col-md-3 mb-3">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#imagemModal">
-                                    <img src="img/Logo Chile.jpeg" class="img-fluid" alt="Imagem 1">
-                                </a>
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_pueto varas.jpg" class="img-fluid lightbox-trigger" alt="Imagem 1">
+                                    <div class="overlay">
+                                        <h3>Puerto Varas</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>   
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/centro-de-santiago-1024x1024.png" class="img-fluid lightbox-trigger" alt="Imagem 2">
+                                    <div class="overlay">
+                                        <h3>Centro de Santiago</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_Cajón Del Maipo.png" class="img-fluid lightbox-trigger" alt="Imagem 3">
+                                    <div class="overlay">
+                                        <h3>Cajón Del Maipo</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Gastronomia_Pastel-de-Choclo-Chileno.jpg" class="img-fluid lightbox-trigger" alt="Imagem 4">
+                                    <div class="overlay">
+                                        <h3>Pastel de Choclo Chileno</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-3 mb-3">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#imagemModal">
-                                    <img src="img/Logo Chile.jpeg" class="img-fluid" alt="Imagem 2">
-                                </a>
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Gastronomia_rubayat-1024x1024.png" class="img-fluid lightbox-trigger" alt="Imagem 5">
+                                    <div class="overlay">
+                                        <h3>Rubayat</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Gastronomia_Cazuela-Chilena-2.png" class="img-fluid lightbox-trigger" alt="Imagem 6">
+                                    <div class="overlay">
+                                        <h3>Cazuela Chilena</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Gastronomia_refogado.jpg" class="img-fluid lightbox-trigger" alt="Imagem 7">
+                                    <div class="overlay">
+                                        <h3>Refogado</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_valparaiso_chile.jpg" class="img-fluid lightbox-trigger" alt="Imagem 8">
+                                    <div class="overlay">
+                                        <h3>Valparaiso</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_matriz santiago.webp" class="img-fluid lightbox-trigger" alt="Pontos Turísticos 5">
+                                    <div class="overlay">
+                                        <h3>Matriz Santiago</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>                  
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_mercado-central.png" class="img-fluid lightbox-trigger" alt="Pontos Turísticos 6">
+                                    <div class="overlay">
+                                        <h3>Mercado Central</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_valparaiso_chile.jpg" class="img-fluid lightbox-trigger" alt="Pontos Turísticos 7">
+                                    <div class="overlay">
+                                        <h3>Vale paraiso</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turismo_torres-del-paine-andrademagnus.jpg" class="img-fluid lightbox-trigger" alt="Imagem 8">
+                                    <div class="overlay">
+                                        <h3>Torres Del Paine</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
                             </div>
                             <!-- Adicione mais imagens conforme necessário -->
                         </div>
                     </div>
+                    
+                    <div class="tab-pane fade" id="pontos-turisticos">
+                        <div class="row">
+                            <!-- Aqui você pode adicionar as imagens da categoria de pontos turísticos -->
+            
+                            <div class="col-md-3 mb-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_pueto varas.jpg" class="img-fluid lightbox-trigger" alt="Imagem 1">
+                                    <div class="overlay">
+                                        <h3>Puerto Varas</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/centro-de-santiago-1024x1024.png" class="img-fluid lightbox-trigger" alt="Imagem 2">
+                                    <div class="overlay">
+                                        <h3>Centro de Santiago</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_Cajón Del Maipo.png" class="img-fluid lightbox-trigger" alt="Imagem 3">
+                                    <div class="overlay">
+                                        <h3>Cajón Del Maipo</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_Termas de Colina.webp" class="img-fluid lightbox-trigger" alt="Pontos Turísticos 4">
+                                    <div class="overlay">
+                                        <h3>Termas de Colina</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_matriz santiago.webp" class="img-fluid lightbox-trigger" alt="Pontos Turísticos 5">
+                                    <div class="overlay">
+                                        <h3>Matriz Santiago</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_mercado-central.png" class="img-fluid lightbox-trigger" alt="Pontos Turísticos 6">
+                                    <div class="overlay">
+                                        <h3>Mercado Central</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turistico_valparaiso_chile.jpg" class="img-fluid lightbox-trigger" alt="Pontos Turísticos 7">
+                                    <div class="overlay">
+                                        <h3>Vale paraiso</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Ponto-turismo_torres-del-paine-andrademagnus.jpg" class="img-fluid lightbox-trigger" alt="Imagem 8">
+                                    <div class="overlay">
+                                        <h3>Torres Del Paine</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Adicione mais imagens conforme necessário -->
+                        </div>
+                    </div>
+
                     <div class="tab-pane fade" id="gastronomia">
                         <div class="row">
                             <!-- Aqui você pode adicionar as imagens da categoria de gastronomia -->
                             <div class="col-md-3 mb-3">
-                                <img src="img/gastronomia1.jpg" class="img-fluid" alt="Gastronomia 1">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Gastronomia_Pastel-de-Choclo-Chileno.jpg" class="img-fluid lightbox-trigger" alt="Gastronomia 1">
+                                    <div class="overlay">
+                                        <h3>Pastel de Choclo Chileno</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-3 mb-3">
-                                <img src="img/gastronomia2.jpg" class="img-fluid" alt="Gastronomia 2">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Gastronomia_Cazuela-Chilena-2.png" class="img-fluid lightbox-trigger" alt="Gastronomia 2">
+                                    <div class="overlay">
+                                        <h3>Cazuela Chilena</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Adicione mais imagens conforme necessário -->
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pontos-turisticos">
-                        <div class="row">
-                            <!-- Aqui você pode adicionar as imagens da categoria de pontos turísticos -->
-                            <div class="col-md-3 mb-3">
-                                <img src="img/pontos-turisticos1.jpg" class="img-fluid" alt="Pontos Turísticos 1">
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Gastronomia_rubayat-1024x1024.png" class="img-fluid lightbox-trigger" alt="Gastronomia 3">
+                                    <div class="overlay">
+                                        <h3>Rubayat</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-3 mb-3">
-                                <img src="img/pontos-turisticos2.jpg" class="img-fluid" alt="Pontos Turísticos 2">
+                            <div class="col-md-3 md-3">
+                                <div class="gallery-item">
+                                    <img src="img/galeria/Gastronomia_refogado.jpg" class="img-fluid lightbox-trigger" alt="Gastronomia 4">
+                                    <div class="overlay">
+                                        <h3>Refogado</h3>
+                                        <p>Descrição da imagem ou categoria</p>
+                                    </div>
+                                </div>
                             </div>
                             <!-- Adicione mais imagens conforme necessário -->
                         </div>
@@ -147,33 +347,17 @@
         </div>
     </footer>
 
-    <!-- Modal -->
-    <div class="modal fade" id="imagemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <img src="" class="img-fluid" id="imagemModalImg" alt="Imagem Modal">
-                </div>
-            </div>
-        </div>
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightbox-image">
     </div>
+
 
     <!-- conexão bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-        // Atualiza o src da imagem no modal com o src da imagem clicada
-        $('#imagemModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget); // Botão que acionou o modal
-            var src = button.find('img').attr('src'); // Extrai o src da imagem clicada
-            var modal = $(this);
-            modal.find('.modal-body img').attr('src', src); // Atualiza o src da imagem no modal
-        });
-    </script>
 </body>
 </html>
