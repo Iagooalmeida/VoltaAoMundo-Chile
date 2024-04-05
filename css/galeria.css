@@ -76,6 +76,10 @@ h2.text-white {
     z-index: 1; /* Certifica-se de que o texto fica na frente da imagem */
 }
 
+.sessao{
+    padding: 40px 0;
+}
+
 /* Rodapé */
 
 .footer {
