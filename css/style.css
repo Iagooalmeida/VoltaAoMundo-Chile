@@ -9,6 +9,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
+    font-size: 16px;
 }
 
 .navbar {
@@ -225,10 +226,14 @@ footer p.copyright {
 
 /* Utilização de gradientes ou sombras sutis */
 .sobre_chile {
-    background: linear-gradient(to bottom, #ffffff, #f8f9fa); /* Gradiente de cor de fundo */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    padding: 40px;
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+    /*Gradientedecordefundo*/box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /*Sombrasutil*/padding: 40px;
     border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 
@@ -239,7 +244,6 @@ footer p.copyright {
 }
 
 .sobre_chile p {
-    font-size: 1.1rem;
     color: #6c757d;
 }
 
@@ -260,7 +264,6 @@ footer p.copyright {
 /* Adicionando borda na parte inferior da seção */
 .sobre_chile {
     margin: 2%;
-    border-bottom: 2px solid #ccc; /* Cor e largura da borda */
     padding-bottom: 20px; /* Espaçamento abaixo da borda */
 }
 
@@ -273,5 +276,7 @@ footer p.copyright {
 .sobre_chile section.container {
     padding-top: 30px; /* Adiciona espaçamento interno na parte superior */
     padding-bottom: 30px; /* Adiciona espaçamento interno na parte inferior */
+    border-bottom: 2px solid #ccc; /* Cor e largura da borda */
+    border-bottom-style: ridge; /* Estilo da borda */
 }
 
