@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gastronomia Chilena</title>
-     <!-- Bootstrap CSS v5.2.1 -->
+     <!-- Bootstrap CSS v5.3.2 -->
      <link
      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
      rel="stylesheet"
@@ -16,10 +16,10 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-            <a class="navbar-brand" href="#">
+            <div class="container-fluid">
                 <img src="img/Logo Chile.jpeg" class="logo" alt="Volta ao Mundo">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,6 +44,8 @@
             </div>
         </nav>
     </header>
+
+    
     <header>
         <div class="container-fluid">
             <div class="col-12">
@@ -61,8 +63,8 @@
         <section class="container mt-5">
             <div class="row">
                 <div class="conteudo col-md-12">
-                    <h1 class="h1 text-center mb-3">Explorando os Sabores do Chile:</h1>
-                    <h2 class="h2 text-center mb-4">Uma Breve História da Culinária Chilena</h2>
+                    <h1 class="h1 text-center mb-5">Explorando os Sabores do Chile:</h1>
+                    <h3 class="h3 text-center mb-4">Uma Breve História da Culinária Chilena</h3>
     
                     <p class="lead">Descubra os sabores únicos e as tradições culinárias que moldaram a identidade do Chile ao longo dos séculos. 
                         Desde tempos antigos, com influências indígenas, até a chegada dos colonizadores espanhóis no século XVI, a culinária chilena 
@@ -72,20 +74,147 @@
                     </p>
                     <p class="lead mb-4">Em nossa jornada gastronômica, vamos explorar os pratos tradicionais e as técnicas culinárias que tornam a culinária chilena única, proporcionando uma experiência sensorial inesquecível.  
                     </p>
-                    <p class="lead fw-bold text-center">Venha conosco nesta viagem culinária pelo Chile!</p>
+                    <p class="lead">Venha conosco nesta viagem culinária pelo Chile!</p>
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col-md-6 text-center">
+            <!-- <div class="row mt-4">
+                <div class="picture-superior col-md-6 text-center">
                     <img src="img/culinaria/Empanadas-comidas-chilenas.jpg" class="img-fluid" alt="Culinária Chilena">
                 </div>
-                <div class="col-md-6 text-center">
+                <div class="picture-superior col-md-6 text-center">
                     <img src="img/culinaria/comidas-tipicas-chile.jpg" class="img-fluid" alt="Segunda Imagem">
                 </div>
-            </div>
+            </div> -->
         </section>
+
+        <section class="container mt-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="h3 text-center mb-5">Pratos Típicos do Chile</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                            <a href="#" class="card-link">
+                                <img src="img/culinaria/Comidas-tipicas-do-Chile-pastel-de-choclo.jpg" 
+                                    class="card-img-top" alt="Pratos Típicos">
+                            </a>
+                            <div class="card-body">
+                                <p class="card-date">01 de fevereiro de 2024</p>
+                                <h5 class="card-title">Pastel de Choclo</h5>
+                                <p class="card-text">Conheça a história e a receita deste prato típico chileno.</p>
+                                <!-- Conteúdo oculto para ser exibido apenas dentro do modal -->
+                                <div class="modal-content" style="display: none;">
+                                    <p class="h6"><strong>Publicado:</strong> 01 de fevereiro de 2024</p>
+                                    <p>
+                                        <strong>Descrição:</strong> 
+                                        Para os chilenos, o pastel de choclo é cercado de memórias afetivas, e vai bem num jantarzinho de dia de semana ou até 
+                                        como prato de festa. A estrutura da receita lembra a do nosso escondidinho, montado em camadas: primeiro o recheio, 
+                                        de carne moída bem temperadinha com azeitona e ovo; por cima o purê, feito de milho. E acredite: polvilhar o açúcar 
+                                        antes de levar ao forno faz toda a diferença!
+                                    </p>
+                                    <p><strong>Receitas:</strong></p>
+                                    <ul>
+                                        <li>Receita 1</li>
+                                        <li>Receita 2</li>
+                                        <li>Receita 3</li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn btn-primary" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#cardModal">
+                                    Saiba Mais
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <a href="pratos-tipicos.html">
+                                <img src="img/culinaria/Empanadas-comidas-chilenas.jpg" class="card-img-top" alt="Pratos Típicos">
+                            </a>
+                            <div class="card-body">
+                                <p class="card-date">22 de junho de 2023</p>
+                                <h5 class="card-title">Empanadas</h5>
+                                <p class="card-text">Descubra a história e os sabores das empanadas chilenas.</p>
+                                <div class="modal-content" style="display: none;">
+                                    <p class="h6"><strong>Publicado:</strong> 22 de junho de 2023</p>
+                                    <p>
+                                        <strong>Descrição:</strong> 
+                                        As empanadas são um dos pratos mais populares do Chile, e podem ser encontradas em diversas versões, 
+                                        desde as tradicionais de carne até as mais inusitadas, como as de mariscos. A massa crocante e o recheio 
+                                        suculento fazem deste salgado uma verdadeira delícia para ser apreciada a qualquer hora do dia.
+                                    </p>
+                                    <p><strong>Receitas:</strong></p>
+                                    <ul>
+                                        <li>Receita 4</li>
+                                        <li>Receita 5</li>
+                                        <li>Receita 6</li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn btn-primary" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#cardModal">
+                                    Saiba Mais
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <a href="pratos-tipicos.html">
+                                <img src="img/culinaria/comidas-tipicas-chile-cazuela.jpg" class="card-img-top" alt="Pratos Típicos">
+                            </a>
+                            <div class="card-body">
+                                <p class="card-date">03 de abril de 2022</p>
+                                <h5 class="card-title">Cazuela</h5>
+                                <p class="card-text">Conheça a história e os ingredientes deste prato tradicional chileno.</p>
+                                <div class="modal-content" style="display: none;">
+                                    <p class="h6"><strong>Publicado:</strong> 03 de abril de 2022</p>
+                                    <p>
+                                        <strong>Descrição:</strong> 
+                                        A cazuela é um prato típico do Chile, feito com carne, legumes e temperos. É uma refeição completa e 
+                                        reconfortante, perfeita para os dias mais frios. A combinação de sabores e texturas faz deste prato 
+                                        uma verdadeira delícia para ser apreciada em família.
+                                    </p>
+                                    <p><strong>Receitas:</strong></p>
+                                    <ul>
+                                        <li>Receita 7</li>
+                                        <li>Receita 8</li>
+                                        <li>Receita 9</li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn btn-primary" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#cardModal">
+                                    Saiba Mais
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
     </main>
-        
+      
+<!-- Modal -->
+<div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalContent">
+                <!-- Aqui será exibido o conteúdo do modal -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- rodapé -->
     <footer class="bg-chile text-white py-4">
@@ -133,5 +262,35 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous">
     </script>
+
+<script>
+    // Função para abrir o modal e exibir as informações do card selecionado
+    function openModal(title, content) {
+        var modalTitle = document.getElementById('modalTitle');
+        var modalContent = document.getElementById('modalContent');
+
+        modalTitle.textContent = title;
+        modalContent.innerHTML = content;
+
+        // Limpa a lista de receitas antes de adicionar as novas
+        modalRecipes.innerHTML = '';
+
+        var myModal = new bootstrap.Modal(document.getElementById('cardModal'));
+        myModal.show();
+    }
+
+    // Adiciona evento de clique aos botões "Saiba Mais" de cada card
+    var saibaMaisButtons = document.querySelectorAll('.btn-primary');
+    saibaMaisButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Evita o comportamento padrão de clicar no link
+            var cardTitle = this.parentNode.querySelector('.card-title').textContent;
+            var cardContent = this.parentNode.querySelector('.modal-content').innerHTML;
+
+            openModal(cardTitle, cardContent);
+        });
+    });
+
+</script>
 </body>
 </html>
