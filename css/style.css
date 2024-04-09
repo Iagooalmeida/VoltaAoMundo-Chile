@@ -68,6 +68,14 @@ body {
     .logo {
         width: 80px; /* Set the desired width */
     }
+    .text-chile {
+        font-size: 1.35rem !important;
+        text-align: center;
+    }
+    p.lead{
+        font-size: 1.1rem;
+        text-align: justify;
+    }
 }
 
 @media screen and (max-width: 768px)
@@ -83,7 +91,8 @@ body {
     }
     .main-content {
         padding: 30px 0;
-    } 
+    }
+    
 }
 
 /* banner */
@@ -390,6 +399,7 @@ footer p.copyright {
     }
     
 }
+/* fim do ajuste de tamanho do conteúdo */
 
 /* CSS pagina gastronimia.chilena */
 
@@ -403,6 +413,13 @@ footer p.copyright {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+}
+
+.gastronomia_session {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #ccc;
+    border-bottom-style: ridge;
 }
 
 /* media query para ajustar o tamanho do conteúdo */
@@ -419,9 +436,12 @@ footer p.copyright {
 }
 
 
-/* .main-content section.container {
-    max-width: 70%;
-} */
+@media screen and (max-width: 770px) {
+    .main-content {
+        padding: 15px;
+    }
+    
+}
 
 .main-content .conteudo {
     text-align: justify;
@@ -439,4 +459,34 @@ footer p.copyright {
     margin-bottom: 1.5rem !important; /* Adiciona margem inferior de 1.5 rem */
 }
 
+
+/* Estilos para a seção de gastronomia_session de vinho e comida */
+
+
+/* Estilos para a descrição dos vinhos */
+.gastronomia_session .wine-description {
+    margin-bottom: 30px;
+}
+
+/* Estilos para os itens da lista de vinhos */
+.gastronomia_session .wine-description ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.gastronomia_session .wine-description ul li {
+    margin-bottom: 15px;
+}
+
+/* Estilos para as imagens dos vinhos */
+.gastronomia_session .wine-description img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    margin-block-end: 12px;
+    border: 4px solid #ccc; /* Cor da borda */
+    border-radius: 10px; /* Raio da borda */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
 
