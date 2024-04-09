@@ -422,6 +422,15 @@ footer p.copyright {
     border-bottom-style: ridge;
 }
 
+section.class_turismo.container {
+    background: aliceblue;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
 /* media query para ajustar o tamanho do conteúdo */
 @media (min-width: 740px) {
     .main-content section.container {
@@ -431,7 +440,7 @@ footer p.copyright {
 
 @media (min-width: 1320px) {
     .main-content section.container {
-        max-width: 70%;
+        max-width: 65%;
     }
 }
 
