@@ -217,6 +217,35 @@ p.card-date {
     margin-bottom: 5px;
 }
 
+.information .card-body{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-style: outset;
+}
+
+.information h2{
+    color: #084298;
+}
+
+@media screen and (max-width: 770px) {
+    .information .card-body{
+        height: auto;
+    }
+    .row>*{
+        margin-bottom: 25px;
+    
+    } 
+}
+
+section.information.container.mt-5.text-center {
+    padding-block-start: 2.5rem;
+}
+
+/* Fim cards */
 
 /* Botão Saiba Mais */
 
