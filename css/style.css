@@ -30,6 +30,22 @@ body {
     text-align: right;
 }
 
+ion-icon.large.mr-3.md.hydrated {
+    font-size: 25px;
+    color: whitesmoke;
+    margin-block-start: 8px;
+    opacity: 0.8;
+}
+
+ion-icon.large.mr-3.md.hydrated:hover {
+    color: white;
+    opacity: 1;
+}
+
+a.check-in.btn.btn-primary {
+    height: 35px;
+}
+
 .mt-5 {
     margin-bottom: 3rem;
 }
