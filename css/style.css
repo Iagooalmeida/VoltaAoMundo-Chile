@@ -188,11 +188,11 @@ h2.text-white {
 }
 
 #carouselExampleCaptions .carousel-item {
-    transition: transform 0.5s ease;
+    -o-transition: transform 0.5s ease;
     -webkit-transition: transform 0.5s ease;
     -moz-transition: transform 0.5s ease;
     -ms-transition: transform 0.5s ease;
-    -o-transition: transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 /* Fim carrossel de imagens */
@@ -340,11 +340,11 @@ footer p.copyright {
     background: linear-gradient(to bottom, #ffffff, #f8f9fa);
     /*Gradientedecordefundo*/box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /*Sombrasutil*/padding: 40px;
-    border-radius: 10px;
+    -o-border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    border-radius: 10px;
 }
 
 
@@ -437,11 +437,11 @@ footer p.copyright {
     background: linear-gradient(to bottom, #ffffff, #f8f9fa);
     /*Gradientedecordefundo*/box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /*Sombrasutil*/padding: 40px;
-    border-radius: 10px;
+    -o-border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    border-radius: 10px;
 }
 
 .gastronomia_session {
@@ -453,11 +453,11 @@ footer p.copyright {
 
 section.class_turismo.container {
     background: aliceblue;
-    border-radius: 20px;
+    -o-border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+    border-radius: 20px;
 }
 
 /* media query para ajustar o tamanho do conteúdo */
@@ -528,3 +528,12 @@ section.class_turismo.container {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
+/*Estilo para página comentários*/
+main.comment .container.mt-5{
+    padding: 2%;
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+}
+
+main.comment imput{
+    margin-bottom: 2%;
+}
