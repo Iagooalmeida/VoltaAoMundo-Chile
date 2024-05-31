@@ -6,9 +6,24 @@
     <title>Pontos Turisticos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <header>
+        <div class="d-flex justify-content-end align-items-center gap-3 bg-chile p-2 pe-md-5">
+            <a href="https://www.linkedin.com/in/iago-de-oliveira-almeida-a342a01a4/" 
+                rel="noopener noreferrer" title="Linkedin" target="_blank">
+                <ion-icon name="logo-linkedin" class="large mr-3"></ion-icon>
+            </a>
+            <a href="https://github.com/Iagooalmeida/VoltaAoMundo-Chile" 
+                rel="noopener noreferrer" title="repositorio github" target="_blank">
+                <ion-icon name="logo-github" class="large mr-3"></ion-icon>
+            </a>
+            <a href="../login/" class="check-in btn btn-primary">Login</a>
+        </div>
+    </header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
@@ -59,17 +74,18 @@
             <form action="salvar.php" method="post">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome<span class="text-chile">*</span></label>
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome aqui ...">
+                    <input type="text" class="form-control" id="nome" name="nome" autofocus placeholder="Digite seu nome aqui ..." required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail<span class="text-chile">*</span></label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email aqui ...">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email aqui ..." required>
+                    <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
                 </div>
                 <div class="mb-3">
                     <label for="comentario" class="form-label">Comentário<span class="text-chile">*</span></label>
-                    <textarea class="form-control" id="comentario" name="comentario" rows="5"></textarea>
+                    <textarea class="form-control" id="comentario" name="comentario" rows="5"  required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary mb-3">Enviar</button>
             </form>
             <hr>
         </div>
