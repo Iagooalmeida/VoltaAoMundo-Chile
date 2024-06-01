@@ -12,14 +12,14 @@
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="login-form border border-3 p-5 rounded-4 shadow-lg">
             <h1 class="text-center mb-4">Tela de Login</h1>
-            <form id="loginForm" method="post" action="#">
+            <form id="loginForm" method="post" action="validarLogin.php">
                 <div class="mb-3">
                     <label for="username" class="form-label">Nome de Usuário</label>
-                    <input type="text" class="form-control" id="username" autocomplete="cc-name" placeholder="Digite seu nome de usuário" autofocus required>
+                    <input type="text" class="form-control" name="username" id="username" autocomplete="cc-name" placeholder="Digite seu nome de usuário" autofocus required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="password" autocomplete="current-password" placeholder="Digite sua senha" required>
+                    <input type="password" class="form-control" name="password" id="password" autocomplete="current-password" placeholder="Digite sua senha" required>
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="rememberPassword">
