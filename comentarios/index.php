@@ -71,14 +71,14 @@
     <main class="comment">
         <div class="container mt-5">
             <h1 class="text-chile text-center">Envie um comentário</h1>
-            <form action="salvar.php" method="post">
+            <form action="gravarComentario.php" method="POST">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome<span class="text-chile">*</span></label>
                     <input type="text" class="form-control" id="nome" name="nome" autofocus placeholder="Digite seu nome aqui ..." required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail<span class="text-chile">*</span></label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email aqui ..." required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Digite um email valido ..." required>
                     <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
                 </div>
                 <div class="mb-3">

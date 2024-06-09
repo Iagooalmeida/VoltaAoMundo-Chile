@@ -66,7 +66,6 @@ class Usuario {
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 
                 if ($this->senha === $row['senha']) {
-                    // Senha está correta, iniciar sessão
                     $_SESSION['user_id'] = $row['id'];
                     $_SESSION['nomeCompleto'] = $row['nomeCompleto'];
                     $_SESSION['email'] = $row['email'];
@@ -74,12 +73,10 @@ class Usuario {
 
                     echo "Login realizado com sucesso!";
                     header("Location: ../Administrativo/" );
-                } else {
-                    // Senha incorreta
+                } else {              
                     echo "Senha incorreta.";
                 }
             } else {
-                // Usuário não encontrado
                 echo "Usuário não encontrado.";
             }
         } catch (PDOException $e) {
