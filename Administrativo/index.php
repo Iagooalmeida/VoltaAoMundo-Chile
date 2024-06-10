@@ -25,6 +25,11 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
     <header>
+        <div>
+            <div class="d-flex justify-content-end align-items-center gap-3 bg-chile p-2 pe-md-5 bg-chile" style="height: 5em;">
+                <h2 class="text-center fs-4">Bem-vindo, <?php echo explode(' ', $_SESSION['nomeCompleto'])[0]; ?></h2>
+            </div>
+        </div>
         <nav>
             <ul class="menu">
                 <li title="home"><a href="#" class="menu-button home">menu</a></li>
@@ -33,6 +38,7 @@ if (!isset($_SESSION['user_id'])) {
                 <li title="about"><a href="#" class="active about">about</a></li>
                 <li title="archive"><a href="#" class="archive">archive</a></li>
                 <li title="contact"><a href="#" class="contact">contact</a></li>
+                <li title="logout"><a href="../login/logout.php">logout</a></li>
             </ul>
             <ul class="menu-bar">
                 <li><a href="#" class="menu-button">Menu</a></li>

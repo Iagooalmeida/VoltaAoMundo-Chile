@@ -113,6 +113,18 @@
     height:100%;
 }
 
+.bg-chile{
+    background: #e34141;
+    width:100%;
+    position:fixed;
+    z-index:1;
+}
+
+h2.text-center.fs-4 {
+    color: white;
+    text-shadow: 2px 4px 3px black;
+}
+
 @media all and (max-width: 500px) {
     .container{
         margin-top:100px;
@@ -135,7 +147,7 @@
     }
     .open{
         width:100%;
-        height:auto;
+        height: 26em;
     }
     .para{
     padding-left:5px;
