@@ -8,11 +8,7 @@ class Comentario{
     public $status;
     private $conn;
 
-    public function __construct($conn, $nome, $email, $comentario, $status){
-        $this->nome = $nome;
-        $this->email = $email;
-        $this->comentario = $comentario;
-        $this->status = $status;
+    public function __construct($conn){
         $this->conn = $conn;
     }
 
@@ -48,8 +44,8 @@ class Comentario{
         $this->comentario = $comentario;
     }
 
-    public function gravarComentario(){
-        try{
+    public function gravarComentario() {
+        try {
             $sql = "INSERT INTO tb_comentarios (nome, email, comentario, status, data_cad) VALUES (:nome, :email, :comentario, :status, NOW())";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(':nome', $this->nome);
@@ -58,8 +54,34 @@ class Comentario{
             $stmt->bindValue(':status', $this->status);
             $stmt->execute();
             return true;
-        } catch (PDOException $e){
+        } catch (PDOException $e) {
             echo "Erro ao gravar comentário: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function listarComentarios(){
+        try{
+            $sql = "SELECT * FROM tb_comentarios";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e){
+            echo "Erro ao listar comentários: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function alterarStatus($conn, $id, $status) {
+        try {
+            $sql = "UPDATE tb_comentarios SET status = :status WHERE id = :id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(':status', $status);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo "Erro ao alterar status: " . $e->getMessage();
             return false;
         }
     }

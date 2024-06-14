@@ -29,6 +29,11 @@
             }
 
             $comentarioObj = new Comentario($conn, $nome, $email, $comentario, $status);
+            $comentarioObj->setNome($nome);
+            $comentarioObj->setEmail($email);
+            $comentarioObj->setComentario($comentario);
+            $comentarioObj->status = $status;
+
             $cadastrarComentario = $comentarioObj->gravarComentario();
 
             if ($cadastrarComentario) {
@@ -48,7 +53,7 @@
         } catch (Exception $e) {
             echo '<script>';
             echo 'alert("' . $e->getMessage() . '");';
-            echo 'window.location.href = "index.php";';
+            // echo 'window.location.href = "index.php";';
             echo '</script>';
         }
     }
