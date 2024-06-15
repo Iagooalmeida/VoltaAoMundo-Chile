@@ -92,10 +92,10 @@ $comentarios = $comentario->listarComentarios($conn);
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <form id="importForm" method="POST" enctype="multipart/form-data">
+            <form id="uploadForm" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="jsonFile" class="form-label">Importar Comentários via JSON</label>
-                    <input class="form-control" type="file" id="jsonFile" name="jsonFile">
+                    <input class="form-control" type="file" id="jsonFile" name="jsonFile"  accept=".json">
                 </div>
                 <button type="submit" class="btn btn-primary">Importar</button>
             </form>
@@ -125,5 +125,6 @@ $comentarios = $comentario->listarComentarios($conn);
 
     <script src="script/aprovar.js"></script>
     <script src="script/reprovar.js"></script>
+    <script src="script/importarJSON.js"></script>
 </body>
 </html>
