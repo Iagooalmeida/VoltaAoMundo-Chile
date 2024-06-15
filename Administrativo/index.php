@@ -124,5 +124,6 @@ $comentarios = $comentario->listarComentarios($conn);
     </script>
 
     <script src="script/aprovar.js"></script>
+    <script src="script/reprovar.js"></script>
 </body>
 </html>
