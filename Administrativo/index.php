@@ -26,6 +26,8 @@ $comentarios = $comentario->listarComentarios($conn);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
     <header>
@@ -40,7 +42,7 @@ $comentarios = $comentario->listarComentarios($conn);
                 <li title="about"><a href="#" class="active about">about</a></li>
                 <li title="archive"><a href="#" class="archive">archive</a></li>
                 <li title="contact"><a href="#" class="contact">contact</a></li>
-                <li title="logout"><a href="../login/logout.php">logout</a></li>
+                <li title="logout"><a href="../login/logout.php" class="logout">logout</a></li>
             </ul>
             <ul class="menu-bar">
                 <li><a href="#" class="menu-button">Menu</a></li>
@@ -53,7 +55,7 @@ $comentarios = $comentario->listarComentarios($conn);
     </header>
     <main class="content">
     <div class="container mt-5">
-            <h1>Painel Administrativo</h1>
+            <h1 class="pb-md-5">Painel Administrativo</h1>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -76,8 +78,15 @@ $comentarios = $comentario->listarComentarios($conn);
                             <td><?php echo date('d/m/Y', strtotime($comentario['data_cad'])); ?></td>
                             <td><?php echo $comentario['status']; ?></td>
                             <td>
-                                <button class="btn btn-success btn-approve" data-id="<?php echo $comentario['id']; ?>">Aprovar</button>
-                                <button class="btn btn-danger btn-reject" data-id="<?php echo $comentario['id']; ?>">Reprovar</button>
+                                <button class="btn btn-success btn-approve" data-id="<?php echo $comentario['id']; ?>" title="Aprovar">
+                                    <ion-icon name="checkmark-outline"></ion-icon>
+                                </button>
+                                <button class="btn btn-danger btn-reject" data-id="<?php echo $comentario['id']; ?>" title="Reprovar">
+                                    <ion-icon name="close-outline"></ion-icon>
+                                </button>
+                                <button class="btn btn-primary btn-edit" data-id="<?php echo $comentario['id']; ?>"title="Editar">
+                                    <ion-icon name="create-outline"></ion-icon>
+                                </button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -113,5 +122,7 @@ $comentarios = $comentario->listarComentarios($conn);
             });
         });
     </script>
+
+    <script src="script/aprovar.js"></script>
 </body>
 </html>
