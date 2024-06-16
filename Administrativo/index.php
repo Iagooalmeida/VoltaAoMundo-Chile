@@ -39,7 +39,7 @@ $comentarios = $comentario->listarComentarios($conn);
                 <li title="home"><a href="#" class="menu-button home">menu</a></li>
                 <li title="search"><a href="#" class="search">search</a></li>
                 <li title="pencil"><a href="#" class="pencil">pencil</a></li>
-                <li title="about"><a href="../cadastro/" class="active about">about</a></li>
+                <li title="about"><a href="cadastro/" class="active about">about</a></li>
                 <li title="archive"><a href="arquivado/" class="archive">archive</a></li>
                 <li title="contact"><a href="#" class="contact">contact</a></li>
                 <li title="logout"><a href="../login/logout.php" class="logout">logout</a></li>
@@ -88,7 +88,7 @@ $comentarios = $comentario->listarComentarios($conn);
                                 <button class="btn btn-danger btn-reject" data-id="<?php echo $comentario['id']; ?>" title="Reprovar">
                                     <ion-icon name="close-outline"></ion-icon>
                                 </button>
-                                <button class="btn btn-primary btn-edit" data-id="<?php echo $comentario['id']; ?>"title="Editar">
+                                <button class="btn btn-primary btn-edit" data-id="<?php echo $comentario['id']; ?>" data-nome="<?php echo $comentario['nome']; ?>" data-email="<?php echo $comentario['email']; ?>" data-comentario="<?php echo $comentario['comentario']; ?>" title="Editar">
                                     <ion-icon name="create-outline"></ion-icon>
                                 </button>
                             </td>
@@ -117,6 +117,40 @@ $comentarios = $comentario->listarComentarios($conn);
     <footer class="content">
         <!-- place footer here -->
     </footer>
+
+    <!-- Modal de Edição -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="editForm" action="editarComentario.php" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Editar Comentário</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="id" id="editId">
+                        <div class="mb-3">
+                            <label for="editNome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="editNome" name="nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="editEmail" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editComentario" class="form-label">Comentário</label>
+                            <textarea class="form-control" id="editComentario" name="comentario" rows="3" required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -131,7 +165,7 @@ $comentarios = $comentario->listarComentarios($conn);
             });
         });
     </script>
-
+    <script src="script/modalComentario.js"></script>
     <script src="script/aprovar.js"></script>
     <script src="script/reprovar.js"></script>
     <script src="script/importarJSON.js"></script>
