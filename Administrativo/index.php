@@ -40,7 +40,7 @@ $comentarios = $comentario->listarComentarios($conn);
                 <li title="search"><a href="#" class="search">search</a></li>
                 <li title="pencil"><a href="#" class="pencil">pencil</a></li>
                 <li title="about"><a href="../cadastro/" class="active about">about</a></li>
-                <li title="archive"><a href="#" class="archive">archive</a></li>
+                <li title="archive"><a href="arquivado/" class="archive">archive</a></li>
                 <li title="contact"><a href="#" class="contact">contact</a></li>
                 <li title="logout"><a href="../login/logout.php" class="logout">logout</a></li>
             </ul>
@@ -54,7 +54,7 @@ $comentarios = $comentario->listarComentarios($conn);
         </nav>      
     </header>
     <main class="content">
-    <div class="container mt-5">
+        <div class="container mt-5">
             <h1 class="pb-md-5">Painel Administrativo</h1>
             <table class="table table-striped">
                 <thead>
@@ -69,9 +69,13 @@ $comentarios = $comentario->listarComentarios($conn);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($comentarios as $comentario): ?>
+                    <?php 
+                    $contador = 1;
+                    foreach($comentarios as $comentario): 
+                        if ($comentario['status'] == 'Aprovado' || $comentario['status'] == 'Pendente') {
+                    ?>
                         <tr>
-                            <td><?php echo $comentario['id']; ?></td>
+                            <td><?php echo $contador; ?></td>
                             <td><?php echo $comentario['nome']; ?></td>
                             <td><?php echo $comentario['email']; ?></td>
                             <td><?php echo $comentario['comentario']; ?></td>
@@ -89,7 +93,10 @@ $comentarios = $comentario->listarComentarios($conn);
                                 </button>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php 
+                        $contador++;
+                        }
+                    endforeach; ?>
                 </tbody>
             </table>
             <form id="uploadForm" enctype="multipart/form-data">
@@ -99,6 +106,8 @@ $comentarios = $comentario->listarComentarios($conn);
                 </div>
                 <button type="submit" class="btn btn-primary">Importar</button>
             </form>
+        </div>
+    </main>
 
             <!-- <form id="exportForm" method="POST">
                 <button type="submit" class="btn btn-primary">Exportar</button>

@@ -64,7 +64,6 @@ class Usuario {
             if ($stmt->rowCount() == 1) {
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                // Utilize password_verify para verificar a senha hashada
                 if (password_verify($senha, $row['senha'])) {
                     $_SESSION['user_id'] = $row['id'];
                     $_SESSION['nomeCompleto'] = $row['nomeCompleto'];

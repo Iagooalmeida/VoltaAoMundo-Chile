@@ -62,7 +62,7 @@ class Comentario{
 
     public function listarComentarios(){
         try{
-            $sql = "SELECT * FROM tb_comentarios";
+            $sql = "SELECT * FROM tb_comentarios ORDER BY id DESC";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);

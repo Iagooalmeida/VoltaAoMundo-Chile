@@ -38,7 +38,7 @@ if (!isset($_SESSION['user_id'])) {
                 <li title="search"><a href="#" class="search">search</a></li>
                 <li title="pencil"><a href="#" class="pencil">pencil</a></li>
                 <li title="about"><a href="../cadastro/" class="active about">about</a></li>
-                <li title="archive"><a href="#" class="archive">archive</a></li>
+                <li title="archive"><a href="../Administrativo/arquivado/" class="archive">archive</a></li>
                 <li title="contact"><a href="#" class="contact">contact</a></li>
                 <li title="logout"><a href="../login/logout.php" class="logout">logout</a></li>
             </ul>
@@ -102,6 +102,14 @@ if (!isset($_SESSION['user_id'])) {
             </form>
         </div>
     </main>
+    <script>
+        $(document).ready(function(){
+            $(".menu-button").click(function(){
+                $(".menu-bar").toggleClass("open");
+                $(".content").toggleClass("menu-expanded");
+            });
+        });
+    </script>
 
         <script>
         document.getElementById('cadastroUsuarioForm').addEventListener('submit', function(event) {
@@ -132,7 +140,7 @@ if (!isset($_SESSION['user_id'])) {
                 }
             })
             .catch(error => {
-                console.error('Erro:', error); // Adicione esta linha para depurar erros
+                console.error('Erro:', error);
                 Swal.fire({
                     icon: 'error',
                     title: 'Erro',
