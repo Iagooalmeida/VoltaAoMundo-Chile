@@ -86,5 +86,18 @@ class Comentario{
         }
     }
 
+    public function excluirComentario($id) {
+        try {
+            $sql = "DELETE FROM tb_comentarios WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo "Erro ao excluir comentário: " . $e->getMessage();
+            return false;
+        }
+    }
+
 }
 ?>
