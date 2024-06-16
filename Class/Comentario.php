@@ -46,6 +46,10 @@ class Comentario{
 
     public function gravarComentario() {
         try {
+            $this->nome = $this->limparInput($this->nome);
+            $this->email = $this->limparInput($this->email);
+            $this->comentario = $this->limparInput($this->comentario);
+
             $sql = "INSERT INTO tb_comentarios (nome, email, comentario, status, data_cad) VALUES (:nome, :email, :comentario, :status, NOW())";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(':nome', $this->nome);
@@ -60,8 +64,19 @@ class Comentario{
         }
     }
 
+    private function limparInput($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data= htmlspecialchars($data);
+        return $data;
+    }  
+
     public function listarComentarios(){
         try{
+            $this->nome = $this->limparInput($this->nome);
+            $this->email = $this->limparInput($this->email);
+            $this->comentario = $this->limparInput($this->comentario);
+
             $sql = "SELECT * FROM tb_comentarios ORDER BY id DESC";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
@@ -97,6 +112,12 @@ class Comentario{
             echo "Erro ao excluir comentário: " . $e->getMessage();
             return false;
         }
+    }
+
+    public function editarComentario($id, $nome, $email, $comentario) {
+        $sql = "UPDATE tb_comentarios SET nome = ?, email = ?, comentario = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute([$nome, $email, $comentario, $id]);
     }
 
 }

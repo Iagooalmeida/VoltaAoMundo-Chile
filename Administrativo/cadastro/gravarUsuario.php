@@ -1,11 +1,11 @@
 <?php
-require_once '../sql/conexao.php';
-require_once '../Class/Usuario.php';
+require_once '../../sql/conexao.php';
+require_once '../../Class/Usuario.php';
 
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../login/");
+    header("Location: ../../login/");
     exit();
 }
 

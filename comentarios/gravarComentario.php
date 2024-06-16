@@ -28,7 +28,7 @@
                 throw new Exception("Por favor, insira um email válido.");
             }
 
-            $comentarioObj = new Comentario($conn, $nome, $email, $comentario, $status);
+            $comentarioObj = new Comentario($conn);
             $comentarioObj->setNome($nome);
             $comentarioObj->setEmail($email);
             $comentarioObj->setComentario($comentario);
@@ -43,7 +43,7 @@
                         title: 'Sucesso!',
                         text: 'Comentário enviado com sucesso.',
                     }).then(() => {
-                        window.history.back();
+                       window.location.href = 'index.php';
                     });
                 </script>";
 
