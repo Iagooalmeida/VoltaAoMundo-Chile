@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data.success) {
                     Swal.fire({
                         icon: 'info',
-                        title: 'Sucesso!',
+                        title: 'Reprovado!',
                         text: 'Comentário reprovado.',
                     }).then(() => {
                         // Atualize a página ou o status do comentário
