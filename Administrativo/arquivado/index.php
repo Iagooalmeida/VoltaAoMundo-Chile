@@ -11,6 +11,12 @@
 
     $comentario = new Comentario($conn);
     $comentarios = $comentario->listarComentarios($conn);
+
+    $mensagem = '';
+    if (isset($_SESSION['mensagem'])) {
+        $mensagem = $_SESSION['mensagem'];
+        unset($_SESSION['mensagem']); 
+    }
 ?>
 
 
@@ -91,6 +97,19 @@
             </table>
         </div>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <?php if ($mensagem): ?>
+    <script>
+        Swal.fire({
+            icon: '<?php echo $mensagem['tipo']; ?>',
+            title: '<?php echo $mensagem['titulo']; ?>',
+            text: '<?php echo $mensagem['texto']; ?>',
+        });
+    </script>
+    <?php endif; ?>
 
     <script>
         $(document).ready(function(){
