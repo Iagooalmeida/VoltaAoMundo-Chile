@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($id !== null) {
         $comentarioObj = new Comentario($conn);
-        if ($comentarioObj->alterarStatus($conn, $id, $status)) {
+        if ($comentarioObj->alterarStatus($id, $status)) {
             echo json_encode(['success' => true]);
         } else {
             echo json_encode(['success' => false, 'message' => 'Erro ao aprovar comentário.']);

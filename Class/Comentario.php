@@ -72,16 +72,29 @@ class Comentario{
         }
     }
 
-    public function alterarStatus($conn, $id, $status) {
+    public function alterarStatus($id, $status) {
         try {
             $sql = "UPDATE tb_comentarios SET status = :status WHERE id = :id";
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(':status', $status);
-            $stmt->bindValue(':id', $id);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
             echo "Erro ao alterar status: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function excluirComentario($id) {
+        try {
+            $sql = "DELETE FROM tb_comentarios WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo "Erro ao excluir comentário: " . $e->getMessage();
             return false;
         }
     }
