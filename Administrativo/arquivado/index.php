@@ -1,14 +1,21 @@
 <?php
+    require_once '../../Class/Comentario.php';
+    require_once '../../sql/conexao.php';
+
+
     session_start();
     if (!isset($_SESSION['usuario'])) {
         header('Location: ../login/');
         exit();
     }
+
+    $comentario = new Comentario($conn);
+    $comentarios = $comentario->listarComentarios($conn);
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +50,47 @@
             </ul>
         </nav>
     </head>
-
+    <main class="content">
+        <div class="container mt-5">
+            <h1 class="pb-md-5">Comentarios arquivados</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Comentário</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                    $contador = 1;
+                    foreach ($comentarios as $comentario) :
+                        if ($comentario['status'] == 'Arquivado') {
+                    ?>
+                            <tr>
+                                <th scope="row"><?php echo $contador++; ?></th>
+                                <td><?php echo $comentario['nome']; ?></td>
+                                <td><?php echo $comentario['email']; ?></td>
+                                <td><?php echo $comentario['comentario']; ?></td>
+                                <td><?php echo date('d/m/Y', strtotime($comentario['data_cad'])); ?></td>
+                                <td><?php echo $comentario['status']; ?></td>
+                                <td>
+                                    <a href="restaurar.php?id=<?php echo $comentario['id']; ?>" class="btn btn-success">Restaurar</a>
+                                    <a href="excluir.php?id=<?php echo $comentario['id']; ?>" class="btn btn-danger">Excluir</a>
+                                </td>
+                            </tr>
+                    <?php
+                    $contador++;
+                        }
+                    endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </main>
 
     <script>
         $(document).ready(function(){
