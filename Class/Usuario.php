@@ -3,15 +3,13 @@ class Usuario {
     private $id;
     private $nomeCompleto;
     private $usuario;
+    public $telefone;
     private $email;
     private $senha;
     private $conn;
     
-    public function __construct($conn, $usuario, $senha, $nomeCompleto = null, $email = null) {
-        $this->usuario = $usuario;
-        $this->senha = $senha;
-        $this->nomeCompleto = $nomeCompleto;
-        $this->email = $email;
+    public function __construct($conn)
+    {
         $this->conn = $conn;
     }
     
@@ -55,25 +53,28 @@ class Usuario {
         $this->senha = $senha;
     }
 
-    public function validarLogin() {
+    public function validarLogin($usuario, $senha) {
         try {
-            $sql = "SELECT id, nomeCompleto, email, senha FROM tb_users WHERE usuario = :usuario";
+
+            $sql = "SELECT * FROM tb_users WHERE usuario = :usuario";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':usuario', $this->usuario);
+            $stmt->bindParam(':usuario', $usuario, PDO::PARAM_STR);
             $stmt->execute();
-            
+
             if ($stmt->rowCount() == 1) {
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                
-                if ($this->senha === $row['senha']) {
+
+                // Utilize password_verify para verificar a senha hashada
+                if (password_verify($senha, $row['senha'])) {
                     $_SESSION['user_id'] = $row['id'];
                     $_SESSION['nomeCompleto'] = $row['nomeCompleto'];
                     $_SESSION['email'] = $row['email'];
-                    $_SESSION['usuario'] = $this->usuario;
+                    $_SESSION['usuario'] = $row['usuario'];
 
                     echo "Login realizado com sucesso!";
-                    header("Location: ../Administrativo/" );
-                } else {              
+                    header("Location: ../Administrativo/");
+                    exit();
+                } else {
                     echo "Senha incorreta.";
                 }
             } else {
@@ -81,6 +82,32 @@ class Usuario {
             }
         } catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();
+        }
+    }
+
+    public function gravarUsuario($nomeCompleto, $usuario, $telefone, $email, $senhaHash) {
+        try {
+            $sql = "SELECT id FROM tb_users WHERE usuario = :usuario";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':usuario', $usuario);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                return false; // Usuário já cadastrado
+            } else {
+                $sql = "INSERT INTO tb_users (nomeCompleto, usuario, telefone, email, senha) VALUES (:nomeCompleto, :usuario, :telefone, :email, :senha)";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(':nomeCompleto', $nomeCompleto);
+                $stmt->bindParam(':usuario', $usuario);
+                $stmt->bindParam(':telefone', $telefone);
+                $stmt->bindParam(':email', $email);
+                $stmt->bindParam(':senha', $senhaHash);
+                $stmt->execute();
+
+                return true;
+            }
+        } catch (PDOException $e) {
+            return "Erro: " . $e->getMessage();
         }
     }
 }

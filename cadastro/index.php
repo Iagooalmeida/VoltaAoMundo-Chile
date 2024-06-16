@@ -21,6 +21,8 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../Administrativo/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         
     </style>
@@ -52,12 +54,24 @@ if (!isset($_SESSION['user_id'])) {
     <main class="content">
         <div class="cont container mt-5">
             <h1 class="pb-md-5">Cadastro de Usuário</h1>
-            <form action="cadastrar_usuario.php" method="POST">
+            <form id="cadastroUsuarioForm" action="gravarUsuario.php" method="POST">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="nome" class="form-label">Nome</label>
+                            <label for="nome" class="form-label">Nome Completo</label>
                             <input type="text" class="form-control" id="nome" name="nome" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="usuario" class="form-label">Usuário</label>
+                            <input type="text" class="form-control" id="usuario" name="usuario" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone / Celular</label>
+                            <input type="text" class="form-control" id="telefone" name="telefone" maxlength="15">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -89,19 +103,43 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </main>
 
-    <script>
-        $(document).ready(function(){
-            $(".menu-button").click(function(){
-                $(".menu-bar").toggleClass("open");
-                $(".content").toggleClass("menu-expanded");
+        <script>
+        document.getElementById('cadastroUsuarioForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var form = event.target;
+            var formData = new FormData(form);
+
+            fetch('gravarUsuario.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sucesso!',
+                        text: data.message
+                    }).then(() => {
+                        form.reset();
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erro',
+                        text: data.message
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error); // Adicione esta linha para depurar erros
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.'
+                });
             });
         });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
     </script>
 </body>
 </html>

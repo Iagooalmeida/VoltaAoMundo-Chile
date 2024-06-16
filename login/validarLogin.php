@@ -8,8 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = isset($_POST["password"]) ? trim($_POST["password"]) : null;
 
     if (!empty($usuario) && !empty($senha)) {
-        $usuarioObj = new Usuario($conn, $usuario, $senha, null, null);
-        $usuarioObj->validarLogin();
+        $usuarioObj = new Usuario($conn);
+        $usuarioObj->validarLogin($usuario, $senha);
     } else {
         echo "Por favor, preencha todos os campos.";
     }
