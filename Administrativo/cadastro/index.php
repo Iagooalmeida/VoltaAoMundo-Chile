@@ -40,7 +40,7 @@ if (!isset($_SESSION['user_id'])) {
                 <li title="about"><a href="../cadastro/" class="active about">about</a></li>
                 <li title="archive"><a href="../arquivado/" class="archive">archive</a></li>
                 <li title="contact"><a href="#" class="contact">contact</a></li>
-                <li title="logout"><a href="../login/logout.php" class="logout">logout</a></li>
+                <li title="logout"><a href="../../login/logout.php" class="logout">logout</a></li>
             </ul>
             <ul class="menu-bar">
                 <li><a href="#" class="menu-button">Menu</a></li>
