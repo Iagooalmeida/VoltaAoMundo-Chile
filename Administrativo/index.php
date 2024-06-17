@@ -13,6 +13,10 @@ if (!isset($_SESSION['user_id'])) {
 
 $comentario = new Comentario($conn);
 $comentarios = $comentario->listarComentarios($conn);
+
+$mensagem = isset($_SESSION['mensagem']) ? $_SESSION['mensagem'] : null;
+unset($_SESSION['mensagem'])
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +36,7 @@ $comentarios = $comentario->listarComentarios($conn);
 <body>
     <header>
         <div class="d-flex justify-content-end align-items-center gap-3 bg-chile p-2 pe-md-5 bg-chile" style="height: 5em;">
-            <h2 class="text-center fs-4">Bem-vindo, <?php echo explode(' ', $_SESSION['nomeCompleto'])[0]; ?></h2>
+            <h2 class="text-center fs-5">Bem-vindo, <?php echo explode(' ', $_SESSION['nomeCompleto'])[0]; ?></h2>
         </div>
         <nav>
             <ul class="menu">
@@ -151,6 +155,7 @@ $comentarios = $comentario->listarComentarios($conn);
         </div>
     </div>
 
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -163,9 +168,30 @@ $comentarios = $comentario->listarComentarios($conn);
                 $(".menu-bar").toggleClass("open");
                 $(".content").toggleClass("menu-expanded");
             });
+
+            $(".btn-edit").click(function() {
+                var id = $(this).data("id");
+                var nome = $(this).data("nome");
+                var email = $(this).data("email");
+                var comentario = $(this).data("comentario");
+
+                $("#editId").val(id);
+                $("#editNome").val(nome);
+                $("#editEmail").val(email);
+                $("#editComentario").val(comentario);
+
+                $("#editModal").modal("show");
+            });
+
+            <?php if ($mensagem): ?>
+                Swal.fire({
+                    icon: '<?php echo $mensagem['tipo']; ?>',
+                    title: '<?php echo $mensagem['titulo']; ?>',
+                    text: '<?php echo $mensagem['texto']; ?>'
+                });
+            <?php endif; ?>
         });
     </script>
-    <script src="script/modalComentario.js"></script>
     <script src="script/aprovar.js"></script>
     <script src="script/reprovar.js"></script>
     <script src="script/importarJSON.js"></script>

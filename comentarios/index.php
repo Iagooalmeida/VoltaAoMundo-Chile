@@ -89,6 +89,32 @@
             </form>
             <hr>
         </div>
+        <h2 class="text-chile text-center mt-5">Comentários de Visitantes</h2>
+        <div class="container pb-5">
+            <div class="row">
+            <?php
+            require_once '../sql/Conexao.php';
+            require_once '../Class/Comentario.php';
+            $comentario = new Comentario($conn);
+            $comentarios = $comentario->listarComentarios();
+
+            // Display approved comments
+            foreach ($comentarios as $comentario) {
+                if ($comentario['status'] == 'Aprovado') {
+                echo '<div class="col-md-6">';
+                echo '<div class="card mb-3">';
+                echo '<div class="card-body">';
+                echo '<h5 class="card-title">' . $comentario['nome'] . '</h5>';
+                echo '<h6 class="card-subtitle mb-2 text-muted">' . $comentario['email'] . '</h6>';
+                echo '<p class="card-text">' . $comentario['comentario'] . '</p>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                }
+            }
+            ?>
+            </div>
+        </div>
     </main>
     
     <!-- rodapé -->
