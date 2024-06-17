@@ -2,7 +2,9 @@
 require_once '../sql/conexao.php';
 require_once '../Class/Comentario.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['jsonFile'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['jsonFile']) && isset($_POST['status'])) {
+    $status = $_POST['status'];
+    
     $fileTmpPath = $_FILES['jsonFile']['tmp_name'];
     $fileName = $_FILES['jsonFile']['name'];
     $fileSize = $_FILES['jsonFile']['size'];
@@ -19,12 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['jsonFile'])) {
             $conn->beginTransaction();
             try {
                 foreach ($data as $comentarioData) {
-                    $nome = $comentarioData['nome'];
-                    $email = $comentarioData['email'];
-                    $comentario = $comentarioData['comentario'];
-                    $status = 'Pendente';
+                    $nome = isset($comentarioData['nome']) ? trim($comentarioData['nome']) : null;
+                    $email = isset($comentarioData['email']) ? trim($comentarioData['email']) : null;
+                    $comentario = isset($comentarioData['comentario']) ? trim($comentarioData['comentario']) : null;
 
-                    $comentarioObj = new Comentario($conn, $nome, $email, $comentario, $status);
+                    if ($email !== null && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $email = null;
+                    }
+
+                    $comentarioObj = new Comentario($conn);
                     $comentarioObj->setNome($nome);
                     $comentarioObj->setEmail($email);
                     $comentarioObj->setComentario($comentario);
@@ -50,6 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['jsonFile'])) {
         echo json_encode(['success' => false, 'message' => 'Por favor, faça upload de um arquivo JSON válido.']);
     }
 } else {
-    echo json_encode(['success' => false, 'message' => 'Nenhum arquivo enviado.']);
+    echo json_encode(['success' => false, 'message' => 'Nenhum arquivo enviado ou status não selecionado.']);
 }
 ?>

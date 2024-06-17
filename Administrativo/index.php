@@ -104,9 +104,19 @@ unset($_SESSION['mensagem'])
                 </tbody>
             </table>
             <form id="uploadForm" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="jsonFile" class="form-label">Importar Comentários via JSON</label>
-                    <input class="form-control" type="file" id="jsonFile" name="jsonFile"  accept=".json">
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label for="jsonFile" class="form-label">Importar Comentários via JSON</label>
+                        <input class="form-control" type="file" id="jsonFile" name="jsonFile" accept=".json">
+                    </div>
+                    <div class="col-md-4 mb-3 p-2">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" name="status">
+                            <option value="Pendente" disabled selected>Selecione uma opção</option>
+                            <option value="Aprovado">Aprovar</option>
+                            <option value="Pendente">Pendente</option>
+                        </select>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Importar</button>
             </form>
