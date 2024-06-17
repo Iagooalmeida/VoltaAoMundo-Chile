@@ -1,6 +1,8 @@
 # Projeto "Volta ao Mundo - Chile"  
 
-Desenvolvido pelo aluno Iago de Oliveira Almeida na Fatec Itapira - "Ogari Castro Pacheco"
+**Desenvolvido por:** *Iago de Oliveira Almeida*
+
+Fatec Itapira - "Ogari Castro Pacheco"
 
 ## Descrição  
 

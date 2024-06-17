@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Jun-2024 às 00:37
+-- Tempo de geração: 17-Jun-2024 às 05:38
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.0.30
 
@@ -36,6 +36,17 @@ CREATE TABLE `tb_comentarios` (
   `status` varchar(30) NOT NULL DEFAULT 'Pedente' COMMENT 'Aprovar ou reprovar enviados'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Extraindo dados da tabela `tb_comentarios`
+--
+
+INSERT INTO `tb_comentarios` (`id`, `nome`, `email`, `comentario`, `data_cad`, `status`) VALUES
+(1, 'Júnior Gonçalves', 'jose.goncalves21@fatec.sp.gov.br', 'Parabéns seu site está muito legal!!!!', '2024-06-16', 'Aprovado'),
+(2, 'Joaquim Firmino', 'joaquim.firmino@fatec.sp.gov.br', 'Parabéns seu site está muito legal!!!!', '2024-06-16', 'Arquivado'),
+(3, 'Maria Silva', 'maria.silva@fatec.sp.gov.br', 'Gostei muito do conteúdo do site!', '2024-06-16', 'Aprovado'),
+(4, 'Pedro Santos', 'pedro.santos@fatec.sp.gov.br', 'Ótimo trabalho, continuem assim!', '2024-06-16', 'Aprovado'),
+(5, 'Iago', 'iago732@gmail.com', 'Quem fez esse site merece uma nota 10!', '2024-06-16', 'Aprovado');
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +57,7 @@ CREATE TABLE `tb_users` (
   `id` int(11) NOT NULL,
   `nomeCompleto` varchar(40) NOT NULL,
   `usuario` varchar(20) NOT NULL,
+  `telefone` varchar(15) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `datacad` date NOT NULL DEFAULT current_timestamp()
@@ -55,8 +67,8 @@ CREATE TABLE `tb_users` (
 -- Extraindo dados da tabela `tb_users`
 --
 
-INSERT INTO `tb_users` (`id`, `nomeCompleto`, `usuario`, `senha`, `email`, `datacad`) VALUES
-(1, 'Iago de Oliveira Almeida', 'iago.oalmeida', '12345', 'email@email.com', '2024-05-31');
+INSERT INTO `tb_users` (`id`, `nomeCompleto`, `usuario`, `telefone`, `senha`, `email`, `datacad`) VALUES
+(1, 'Iago de Oliveira Almeida', 'Admin', '199999999', '$2y$10$IsiyXubLLpAmR3xOeg435uOKCF0DPLOOY1/kdd30b64mFiEuH9Lyi', 'iago732@gmail.com', '2024-06-16');
 
 --
 -- Índices para tabelas despejadas
@@ -82,7 +94,7 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT de tabela `tb_comentarios`
 --
 ALTER TABLE `tb_comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tb_users`
