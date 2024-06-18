@@ -6,17 +6,23 @@ require_once '../Class/Comentario.php';
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    
     header("Location: ../login/");
     exit();
 }
 
 $comentario = new Comentario($conn);
-$comentarios = $comentario->listarComentarios($conn);
+
+$paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$limite = 8; // Número de comentários por página
+$inicio = ($paginaAtual > 1) ? ($paginaAtual * $limite) - $limite : 0;
+
+$totalComentarios = $comentario->contarComentarios($conn);
+$totalPaginas = ceil($totalComentarios / $limite);
+
+$comentarios = $comentario->listarComentariosPaginados($conn, $inicio, $limite);
 
 $mensagem = isset($_SESSION['mensagem']) ? $_SESSION['mensagem'] : null;
-unset($_SESSION['mensagem'])
-
+unset($_SESSION['mensagem']);
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +66,7 @@ unset($_SESSION['mensagem'])
     <main class="content">
         <div class="container mt-5">
             <h1 class="pb-md-5">Painel Administrativo</h1>
+            <h2>Comentários</h2>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -74,7 +81,7 @@ unset($_SESSION['mensagem'])
                 </thead>
                 <tbody>
                     <?php 
-                    $contador = 1;
+                    $contador = $inicio + 1;
                     foreach($comentarios as $comentario): 
                         if ($comentario['status'] == 'Aprovado' || $comentario['status'] == 'Pendente') {
                     ?>
@@ -103,6 +110,38 @@ unset($_SESSION['mensagem'])
                     endforeach; ?>
                 </tbody>
             </table>
+                    <!-- Controles de paginação -->
+            <nav aria-label="Navegação de página">
+                <ul class="pagination justify-content-center">
+                    <?php if ($paginaAtual > 1): ?>
+                        <li class="page-item">
+                            <a class="page-link" href="?pagina=<?php echo $paginaAtual - 1; ?>" aria-label="Anterior">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
+                        <li class="page-item <?php echo ($i == $paginaAtual) ? 'active' : ''; ?>">
+                            <a class="page-link" href="?pagina=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        </li>
+                    <?php endfor; ?>
+
+                    <?php if ($paginaAtual < $totalPaginas): ?>
+                        <li class="page-item">
+                            <a class="page-link" href="?pagina=<?php echo $paginaAtual + 1; ?>" aria-label="Próximo">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </nav>
+
+            <h3 class="mt-5">Exportar Comentários</h3>
+            <form action="exportar_comentarios.php" method="post">
+                <button type="submit" class="btn btn-primary">Exportar Comentários</button>
+            </form>
+            <h3 class="mt-5">Importar Comentários</h3>
             <form id="uploadForm" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-md-8 mb-3">
@@ -120,6 +159,7 @@ unset($_SESSION['mensagem'])
                 </div>
                 <button type="submit" class="btn btn-primary">Importar</button>
             </form>
+            
         </div>
     </main>
 

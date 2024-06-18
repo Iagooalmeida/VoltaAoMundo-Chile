@@ -120,5 +120,22 @@ class Comentario{
         return $stmt->execute([$nome, $email, $comentario, $id]);
     }
 
+    public function contarComentarios($conn) {
+        $sql = "SELECT COUNT(*) as total FROM tb_comentarios";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total'];
+    }
+
+    public function listarComentariosPaginados($conn, $inicio, $limite) {
+        $sql = "SELECT * FROM tb_comentarios LIMIT :inicio, :limite";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':inicio', $inicio, PDO::PARAM_INT);
+        $stmt->bindParam(':limite', $limite, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>

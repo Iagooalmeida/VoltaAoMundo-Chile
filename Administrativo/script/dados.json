@@ -1,14 +1,5 @@
 [
-    {
-        "nome": "Júnior Gonçalves",
-        "email": "jose.goncalves21@fatec.sp.gov.br",
-        "comentario": "Parabéns seu site está muito legal!!!!"
-    },
-    {
-        "nome": "Joaquim Firmino",
-        "email": "joaquim.firmino@fatec.sp.gov.br",
-        "comentario": "Parabéns seu site está muito legal!!!!"
-    },
+    
     {
         "nome": "Maria Silva",
         "email": "maria.silva@fatec.sp.gov.br",
@@ -18,5 +9,14 @@
         "nome": "Pedro Santos",
         "email": "pedro.santos@fatec.sp.gov.br",
         "comentario": "Ótimo trabalho, continuem assim!"
-    }
+    },
+    { 
+        "nome": "Ana Oliveira", 
+        "email": "ana.oliveira@fatec.sp.gov.br", 
+        "comentario": "Adorei as informações, muito úteis!" 
+    },
+    { 
+        "nome": "João Pereira", 
+        "email": "joao.pereira@fatec.sp.gov.br", 
+        "comentario": "Não gostei do design do site, precisa melhorar." }
 ]
