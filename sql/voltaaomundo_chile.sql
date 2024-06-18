@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Jun-2024 às 05:38
+-- Tempo de geração: 18-Jun-2024 às 05:07
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.0.30
 
@@ -41,11 +41,13 @@ CREATE TABLE `tb_comentarios` (
 --
 
 INSERT INTO `tb_comentarios` (`id`, `nome`, `email`, `comentario`, `data_cad`, `status`) VALUES
-(1, 'Júnior Gonçalves', 'jose.goncalves21@fatec.sp.gov.br', 'Parabéns seu site está muito legal!!!!', '2024-06-16', 'Aprovado'),
-(2, 'Joaquim Firmino', 'joaquim.firmino@fatec.sp.gov.br', 'Parabéns seu site está muito legal!!!!', '2024-06-16', 'Arquivado'),
 (3, 'Maria Silva', 'maria.silva@fatec.sp.gov.br', 'Gostei muito do conteúdo do site!', '2024-06-16', 'Aprovado'),
-(4, 'Pedro Santos', 'pedro.santos@fatec.sp.gov.br', 'Ótimo trabalho, continuem assim!', '2024-06-16', 'Aprovado'),
-(5, 'Iago', 'iago732@gmail.com', 'Quem fez esse site merece uma nota 10!', '2024-06-16', 'Aprovado');
+(4, 'Joey Ramones', 'ramones@fatec.sp.gov.br', 'Rock and roll ensina a você como viver.', '2024-06-16', 'Aprovado'),
+(5, 'Iago', 'iago732@gmail.com', 'Quem fez esse site merece uma nota 10!', '2024-06-16', 'Aprovado'),
+(6, 'Mateus Santos', 'mateus.santos12@fatec.sp.gov.br', 'Parabéns seu site está muito legal!!!!', '2024-06-17', 'Arquivado'),
+(8, 'Ana Laura', 'ana.laura@fatec.sp.gov.br', 'Gostaria de ver mais sobre vinhos chilenos!', '2024-06-17', 'Pendente'),
+(9, 'Leonardo Almeida', 'leonardo.almeida@fatec.sp.gov.br', 'Ótima paisagens, gostaria de visitar todas!', '2024-06-17', 'Aprovado'),
+(10, 'Testador', 'teste32@outlook.com.br', 'Achei a interface um pouco confusa, pode melhorar.', '2024-06-17', 'Arquivado');
 
 -- --------------------------------------------------------
 
@@ -94,7 +96,7 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT de tabela `tb_comentarios`
 --
 ALTER TABLE `tb_comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `tb_users`
